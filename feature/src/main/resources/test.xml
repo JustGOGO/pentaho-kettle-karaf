@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.3.0" name="standard-4.0.1">
+
+  <feature name="kettle">
+    <feature prerequisite="true" dependency="true">wrap</feature>
+    <bundle>wrap:mvn:pentaho-kettle/kettle-engine/6.1-SNAPSHOT$Export-Package:org.pentaho.di.core;kettle-engine=split;mandatory:=kettle-engine</bundle>
+    <bundle>wrap:mvn:pentaho-kettle/kettle-core/6.1-SNAPSHOT$Require-Bundle:kettle-engine</bundle>
+  </feature>
+</features>

@@ -1,0 +1,96 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+    http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <localRepository/>
+    <interactiveMode/>
+    <usePluginRegistry/>
+    <offline/>
+    <pluginGroups/>
+
+    <servers>
+        <server>
+            <id>pentaho.public.snapshot.repo</id>
+            <username>nbaker</username>
+            <password>huSeM4Pe</password>
+        </server>
+        <server>
+            <id>internal.repo.snapshot</id>
+            <username>admin</username>
+            <password>admin123</password>
+        </server>
+    </servers>
+
+
+    <mirrors>
+    </mirrors>
+    <proxies/>
+
+    <profiles>
+        <profile>
+            <id>pentaho</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>pentaho-nexus</id>
+                    <name>Nexus Internal</name>
+                    <url>http://nexus.pentaho.org/content/groups/omni</url>
+                    <!--                <snapshots>-->
+                    <!--                  <enabled>true</enabled>-->
+                    <!--                </snapshots>-->
+
+                </repository>
+                <repository>
+                    <id>pentaho-nexus-private</id>
+                    <name>Nexus Private Internal</name>
+                    <url>http://nexus.pentaho.org/content/repositories/private-snapshot</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>servicemix</id>
+                    <name>Servicemix Repo</name>
+                    <url>https://svn.apache.org/repos/asf/servicemix/m2-repo</url>
+                </repository>
+
+                <repository>
+                    <id>central2</id>
+                    <name>Central</name>
+                    <url>http://central.maven.org/maven2</url>
+                </repository>
+
+                                <repository>
+                                    <id>internal.repo</id>
+                                    <name>Docker Nexus</name>
+                                    <url>http://172.17.0.3:8081/nexus/content/repositories/releases</url>
+                                    <snapshots>
+                                        <enabled>true</enabled>
+                                    </snapshots>
+                                </repository>
+                <repository>
+                    <id>internal.repo.snapshots</id>
+                    <name>Docker Nexus snaps</name>
+                    <url>http://172.17.0.3:8081/nexus/content/repositories/snapshots</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>pentaho-nexus</id>
+                    <name>Nexus Internal</name>
+                    <url>http://nexus.pentaho.org/content/groups/omni</url>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <!--      <activeProfile>pentaho</activeProfile>-->
+    </activeProfiles>
+</settings>

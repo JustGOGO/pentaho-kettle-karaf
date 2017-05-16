@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pdi-broker  
+spec:
+  selector:                  
+    broker: true
+  ports:
+    port: 61616
+    protocol: TCP
+    targetPort: 61616       

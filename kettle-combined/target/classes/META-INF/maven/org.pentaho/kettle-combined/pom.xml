@@ -1,0 +1,167 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+
+  <parent>
+    <groupId>org.pentaho</groupId>
+    <artifactId>pentaho-ce-jar-parent-pom</artifactId>
+    <version>1.0.13</version>
+  </parent>
+
+  <artifactId>kettle-combined</artifactId>
+  <version>7.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>Pentaho Community Edition Project: ${project.artifactId}</name>
+  <description>a Pentaho open source project</description>
+  <url>http://www.pentaho.com</url>
+
+  <properties>
+    <exam.version>4.6.0</exam.version>
+    <url.version>2.4.1</url.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>pentaho-kettle</groupId>
+      <artifactId>kettle-core</artifactId>
+      <version>7.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>pentaho-kettle</groupId>
+      <artifactId>kettle-engine</artifactId>
+      <version>7.1-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+
+      <!--<plugin>-->
+        <!--<groupId>org.apache.maven.plugins</groupId>-->
+        <!--<artifactId>maven-dependency-plugin</artifactId>-->
+        <!--<version>2.10</version>-->
+        <!--<executions>-->
+          <!--<execution>-->
+            <!--<id>copy-dependencies</id>-->
+            <!--<phase>package</phase>-->
+            <!--<goals>-->
+              <!--<goal>copy-dependencies</goal>-->
+            <!--</goals>-->
+            <!--<configuration>-->
+              <!--<outputDirectory>${project.build.directory}/jars</outputDirectory>-->
+              <!--<overWriteReleases>false</overWriteReleases>-->
+              <!--<overWriteSnapshots>false</overWriteSnapshots>-->
+              <!--<overWriteIfNewer>true</overWriteIfNewer>-->
+              <!--<includeScope>runtime</includeScope>-->
+              <!--<excludeScope>provided</excludeScope>-->
+            <!--</configuration>-->
+          <!--</execution>-->
+        <!--</executions>-->
+      <!--</plugin>-->
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.4.2</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <artifactSet>
+                <includes>
+                  <include>pentaho-kettle:*</include>
+                </includes>
+              </artifactSet>
+              <promoteTransitiveDependencies>true</promoteTransitiveDependencies>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>unpack-shaded</id>
+            <phase>package</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>${project.groupId}</groupId>
+                  <artifactId>${project.artifactId}</artifactId>
+                  <version>${project.version}</version>
+                </artifactItem>
+              </artifactItems>
+              <outputDirectory>${project.build.directory}/classes</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.0.2</version>
+        <configuration>
+          <archive>
+            <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+          </archive>
+        </configuration>
+      </plugin>
+      <!--
+      The maven-bundle-plugin must be called after the maven-shaded-plugin to analyze the relocated packages.
+      It must also be called after the maven-dependency-plugin has unpacked the shaded jar.
+      -->
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <version>3.2.0</version>
+        <extensions>true</extensions>
+        <executions>
+        <execution>
+        <id>make-bundle</id>
+        <phase>package</phase>
+        <goals>
+          <goal>bundle</goal>
+        </goals>
+        </execution>
+        </executions>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+            <Bundle-Version>${project.version}</Bundle-Version>
+
+            <Export-Package>org.pentaho.di.*</Export-Package>
+
+            <Import-Package>!bsh,!COM.jrockit.reflect,!antlr.*,*;resolution:=optional</Import-Package>
+
+            <Dynamic-ImportPackage>*</Dynamic-ImportPackage>
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <distributionManagement>
+    <repository>
+      <id>internal.repo</id>
+      <name>Docker Nexus</name>
+      <url>http://172.17.0.3:8081/nexus/content/repositories/releases</url>
+    </repository>
+
+    <snapshotRepository>
+      <id>internal.repo.snapshot</id>
+      <name>Docker Nexus</name>
+      <url>http://172.17.0.3:8081/nexus/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+</project>

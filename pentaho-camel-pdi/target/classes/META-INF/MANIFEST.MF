@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1494206145943
+Build-Jdk: 1.8.0_121
+Built-By: nbaker
+Bundle-Description: pentaho-camel-snmp OSGi bundle project.
+Bundle-DocURL: http://www.pentaho.com
+Bundle-License: http://www.opensource.org/licenses/mit-license.php
+Bundle-ManifestVersion: 2
+Bundle-Name: pentaho-camel-pdi Bundle
+Bundle-SymbolicName: pentaho-camel-pdi
+Bundle-Vendor: Pentaho Corporation
+Bundle-Version: 7.1.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.pentaho.camel.di;uses:="org.pentaho.di.core.exceptio
+ n,org.apache.camel,org.apache.camel.component,org.apache.commons.io,org
+ .pentaho.di.trans,org.pentaho.di.core,org.pentaho.camel";version="6.1.0
+ .SNAPSHOT"
+Import-Package: org.apache.camel;version="[2.14,3)",org.apache.camel.com
+ ponent;version="[2.14,3)",org.apache.commons.io;version="[1.4,2)",org.o
+ sgi.service.blueprint;version="[1.0.0,2.0.0)",org.pentaho.camel;version
+ ="[7.1,8)",org.pentaho.di.core;version="[6.1,7)",org.pentaho.di.core.ex
+ ception;version="[6.1,7)",org.pentaho.di.trans;version="[6.1,7)"
+SCM_BRANCH: master
+Tool: Bnd-1.50.0

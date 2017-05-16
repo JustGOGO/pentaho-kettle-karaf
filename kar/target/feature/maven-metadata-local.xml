@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>pentaho</groupId>
+  <artifactId>pentaho-kettle-kar</artifactId>
+  <version>7.1-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <localCopy>true</localCopy>
+    </snapshot>
+    <lastUpdated>20170508043922</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <classifier>features</classifier>
+        <extension>xml</extension>
+        <value>7.1-SNAPSHOT</value>
+        <updated>20170508043922</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>

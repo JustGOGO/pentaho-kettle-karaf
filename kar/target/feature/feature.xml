@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.3.0" name="pentaho-kettle-kar">
+    <feature name="pentaho-kettle-feature-base" description="Pentaho Community Edition Project: pentaho-kettle-assembly" version="6.1.0.SNAPSHOT">
+        <details>a Pentaho open source project</details>
+        <bundle>mvn:com.google.guava/guava/17.0</bundle>
+        <bundle>mvn:commons-logging/commons-logging/1.2</bundle>
+    </feature>
+    <feature name="pentaho-kettle-feature" description="Pentaho Community Edition Project: pentaho-kettle-assembly" version="6.1.0.SNAPSHOT">
+        <details>a Pentaho open source project</details>
+        <feature prerequisite="true" dependency="true">pentaho-kettle-feature-base</feature>
+        <feature prerequisite="true" dependency="true">spring</feature>
+        <feature prerequisite="true" dependency="true">activemq</feature>
+        <feature prerequisite="true" dependency="true">camel</feature>
+        <feature prerequisite="true" dependency="true">camel-stream</feature>
+        <feature prerequisite="true" dependency="true">camel-jms</feature>
+        <feature prerequisite="true" dependency="true">activemq-camel</feature>
+        <feature prerequisite="true" dependency="true">pentaho-jms</feature>
+        <feature prerequisite="true" dependency="true">pentaho-camel-jms</feature>
+        <feature prerequisite="true" dependency="true">camel-blueprint</feature>
+        <feature prerequisite="true" dependency="false">wrap</feature>
+        <feature prerequisite="false" dependency="false">camel</feature>
+        <feature prerequisite="false" dependency="false">camel-blueprint</feature>
+        <feature prerequisite="false" dependency="false">camel-stream</feature>
+        <feature prerequisite="true" dependency="false">wrap</feature>
+        <bundle>mvn:org.apache.camel/camel-guava-eventbus/2.14.3</bundle>
+        <bundle>mvn:commons-beanutils/commons-beanutils/1.9.2</bundle>
+        <bundle>mvn:pentaho/pentaho-camel-core/7.1-SNAPSHOT</bundle>
+        <bundle start-level="80">mvn:commons-collections/commons-collections/3.2.2</bundle>
+        <bundle start-level="80">mvn:org.pentaho/kettle-combined/7.1-SNAPSHOT</bundle>
+        <bundle start-level="80">mvn:pentaho/pentaho-camel-pdi/7.1-SNAPSHOT</bundle>
+        <bundle start-level="80">mvn:org.slf4j/slf4j-log4j12/1.7.21</bundle>
+        <bundle start-level="80">mvn:org.slf4j/slf4j-api/1.7.21</bundle>
+        <bundle start-level="80">mvn:log4j/log4j/1.2.17</bundle>
+        <bundle start-level="80">wrap:mvn:org.pentaho/kettle-jms-activator/7.1-SNAPSHOT/xml</bundle>
+        <bundle start-level="80">wrap:mvn:pentaho-kettle/kettle-core/7.1-SNAPSHOT</bundle>
+        <bundle start-level="80">mvn:commons-beanutils/commons-beanutils/1.9.3</bundle>
+        <bundle start-level="80">mvn:commons-codec/commons-codec/1.5</bundle>
+        <bundle start-level="80">wrap:mvn:commons-logging/commons-logging/1.1.1</bundle>
+        <bundle start-level="80">mvn:commons-lang/commons-lang/2.6</bundle>
+        <bundle start-level="80">wrap:mvn:commons-httpclient/commons-httpclient/3.1</bundle>
+        <bundle start-level="80">mvn:org.apache.commons/commons-vfs2/2.1-20150824</bundle>
+        <bundle start-level="80">mvn:commons-io/commons-io/1.4</bundle>
+        <bundle start-level="80">mvn:commons-dbcp/commons-dbcp/1.4</bundle>
+        <bundle start-level="80">mvn:commons-pool/commons-pool/1.5.7</bundle>
+        <bundle start-level="80">mvn:com.google.guava/guava/17.0</bundle>
+        <bundle start-level="80">wrap:mvn:pentaho/metastore/7.1-SNAPSHOT</bundle>
+        <bundle start-level="80">mvn:org.apache.commons/commons-compress/1.4.1</bundle>
+        <bundle start-level="80">wrap:mvn:dom4j/dom4j/1.6.1</bundle>
+        <bundle start-level="80">mvn:org.eclipse.jetty/jetty-util/8.1.15.v20140411</bundle>
+        <bundle start-level="80">wrap:mvn:jug-lgpl/jug-lgpl/2.0.0</bundle>
+        <bundle start-level="80">wrap:mvn:com.jcraft/jsch/0.1.54</bundle>
+        <bundle start-level="80">wrap:mvn:ognl/ognl/2.6.9</bundle>
+        <bundle start-level="80">wrap:mvn:net.sf.scannotation/scannotation/1.0.2</bundle>
+        <bundle start-level="80">wrap:mvn:secondstring/secondstring/20060615</bundle>
+        <bundle start-level="80">wrap:mvn:org.owasp.encoder/encoder/1.2</bundle>
+        <bundle start-level="80">wrap:mvn:org.apache.xmlgraphics/batik-bridge/1.8</bundle>
+        <bundle start-level="80">wrap:mvn:org.apache.xmlgraphics/batik-css/1.8</bundle>
+        <bundle start-level="80">wrap:mvn:org.apache.xmlgraphics/batik-dom/1.8</bundle>
+        <bundle start-level="80">wrap:mvn:org.apache.xmlgraphics/batik-gvt/1.8</bundle>
+        <bundle start-level="80">wrap:mvn:org.apache.xmlgraphics/batik-svg-dom/1.8</bundle>
+        <bundle start-level="80">wrap:mvn:org.apache.xmlgraphics/batik-transcoder/1.8</bundle>
+        <bundle start-level="80">wrap:mvn:org.apache.xmlgraphics/batik-codec/1.8</bundle>
+        <bundle start-level="80">wrap:mvn:org.apache.xmlgraphics/batik-util/1.8</bundle>
+        <bundle start-level="80">wrap:mvn:org.apache.xmlgraphics/batik-ext/1.8</bundle>
+        <bundle start-level="80">wrap:mvn:org.apache.xmlgraphics/batik-xml/1.8</bundle>
+        <bundle start-level="80">wrap:mvn:org.apache.xmlgraphics/batik-anim/1.8</bundle>
+        <bundle start-level="80">wrap:mvn:org.apache.xmlgraphics/batik-parser/1.8</bundle>
+        <bundle start-level="80">wrap:mvn:org.apache.xmlgraphics/batik-script/1.8</bundle>
+        <bundle start-level="80">wrap:mvn:org.apache.xmlgraphics/batik-awt-util/1.8</bundle>
+        <bundle start-level="80">wrap:mvn:xml-apis/xml-apis-ext/1.3.04</bundle>
+        <bundle start-level="80">mvn:org.apache.karaf/org.apache.karaf.main/3.0.3</bundle>
+        <bundle start-level="80">wrap:mvn:pentaho-kettle/kettle-engine/7.1-SNAPSHOT</bundle>
+        <bundle start-level="80">mvn:org.eclipse.jetty/jetty-plus/8.1.15.v20140411</bundle>
+        <bundle start-level="80">mvn:org.eclipse.jetty/jetty-server/8.1.15.v20140411</bundle>
+        <bundle start-level="80">mvn:org.eclipse.jetty/jetty-continuation/8.1.15.v20140411</bundle>
+        <bundle start-level="80">mvn:org.eclipse.jetty/jetty-http/8.1.15.v20140411</bundle>
+        <bundle start-level="80">mvn:org.eclipse.jetty/jetty-io/8.1.15.v20140411</bundle>
+        <bundle start-level="80">mvn:org.eclipse.jetty/jetty-security/8.1.15.v20140411</bundle>
+        <bundle start-level="80">mvn:org.eclipse.jetty/jetty-servlet/8.1.15.v20140411</bundle>
+        <bundle start-level="80">mvn:org.eclipse.jetty/jetty-xml/8.1.15.v20140411</bundle>
+        <bundle start-level="80">mvn:org.eclipse.jetty/jetty-webapp/8.1.15.v20140411</bundle>
+        <bundle start-level="80">wrap:mvn:com.googlecode.log4jdbc/log4jdbc/1.2</bundle>
+    </feature>
+</features>
